@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Log.d("Token : ","aa");
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
             @Override
             public void onComplete(@NonNull Task<String> task) {
                 if(!task.isSuccessful()){
