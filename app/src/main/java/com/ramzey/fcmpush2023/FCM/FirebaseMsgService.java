@@ -31,6 +31,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
         }
     }
 
+    public static int notiId = 0;
     public void pushNotification(String title, String body) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Notification notification;
@@ -68,7 +69,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
             }
 
             notification = new Notification.Builder(this)
-                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setSmallIcon(R.drawable.a)
                     .setContentIntent(pendingIntent)
                     .setContentTitle(title)
                     .setSubText(body)
@@ -77,7 +78,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
                     .build();
         } else {
             notification = new Notification.Builder(this)
-                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setSmallIcon(R.drawable.a)
                     .setContentIntent(pendingIntent)
                     .setAutoCancel(true)
                     .setContentTitle(title)
@@ -85,7 +86,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
                     .build();
         }
         if (notificationManager != null) {
-            notificationManager.notify(1, notification);
+            notificationManager.notify(notiId++, notification);
         }
 
     }
